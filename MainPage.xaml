@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
              x:Class="MauiDrawingViewSample.MainPage">
 
     <ScrollView>
@@ -10,15 +11,20 @@
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
+                x:Name="imageView"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+            <mct:DrawingView
+                x:Name="DrawView"
+                BackgroundColor="LightGray"
+                WidthRequest="200"
+                HeightRequest="200"
+                IsMultiLineModeEnabled="False"
+                LineColor="Green"
+                LineWidth="1"
+                DrawingLineCompleted="DrawingView_DrawingLineCompleted"
                 HorizontalOptions="Center" />
 
             <Label

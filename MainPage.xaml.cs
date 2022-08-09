@@ -20,5 +20,12 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+
+	private async void DrawingView_DrawingLineCompleted(object sender, CommunityToolkit.Maui.Core.DrawingLineCompletedEventArgs e)
+	{
+		var stream = await DrawView.GetImageStream(200, 200);
+
+        imageView.Source = ImageSource.FromStream(() => stream);
+    }
 }
 
